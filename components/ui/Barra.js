@@ -17,7 +17,7 @@ const BarraSuperior = ({ navigation, route }) => {
         <Button
             //Paso 1.14
             icon="plus-circle"
-            textColor="#EF583A"
+            textColor="#cee4ef"
             onPress={() => handlePress()}
         >
             Cliente

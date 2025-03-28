@@ -1,0 +1,39 @@
+{
+  "clientes": [
+    {
+      "nombre": "Paul",
+      "telefono": "68745",
+      "empresa": "Oracle",
+      "correo": "Corre@hotmail.com",
+      "id": "b3e6"
+    },
+    {
+      "nombre": "Mateo Corral",
+      "telefono": "6746874",
+      "empresa": "Avión ",
+      "correo": "Mateo@hotmail.com",
+      "id": "f17b"
+    },
+    {
+      "id": "cb65",
+      "nombre": "Jeje",
+      "telefono": "782",
+      "empresa": "Jojo",
+      "correo": "Ji"
+    },
+    {
+      "id": "dd1c",
+      "nombre": "Julia",
+      "telefono": "782799",
+      "empresa": "El cielo de los perritos",
+      "correo": "julia@gmail.com"
+    },
+    {
+      "id": "23e5",
+      "nombre": "Valentina ",
+      "telefono": "782799",
+      "empresa": "El hogar de los perritos",
+      "correo": "Vale@gmail.com"
+    }
+  ]
+}

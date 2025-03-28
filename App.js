@@ -30,57 +30,63 @@ const theme = {
 const App = () => {
   return (
     <>
-      {/**Paso 1.3, ponemos el navigatiobContainer */}
-      <NavigationContainer>
-        <Stack.Navigator
-          //Paso 1.7, el componente inicial sera inicio.
-          initialRouteName="Inicio"
-          //Paso 1.12, cambiamos el color de la barra superior
-          screenOptions={{
-            headerStyle: {
-              backgroundColor: theme.colors.primary
-            },
-            headerTintColor: theme.colors.surface,
-            headerTitleStyle: {
-              fontWeight: 'bold'
-            }
-          }}
-        >
-          <Stack.Screen
-            //Paso 1.6
-            name="Inicio"
-            //El componente que va a cargar será el de inicio.
-            component={Inicio}
-            //Paso 1.16
-            options={({ navigation, route }) => ({
-              //headerTitleAlign: 'center',
-              headerLeft: (props) => <BarraSuperior {...props}
-                navigation={navigation}
-                route={route}
-              />
-            })}
-          />
-          <Stack.Screen
-            //V-246,paso 1.8
-            name="NuevoCliente"
-            component={NuevoCliente}
-            //Paso 1.9, cambiamos el nombre
-            options={{
-              title: "Nuevo Cliente"
+      {/*Paso 1.30, envolvemos todo en un paper provider */}
+      <PaperProvider>
+        {/**Paso 1.3, ponemos el navigatiobContainer */}
+        <NavigationContainer>
+          <Stack.Navigator
+            //Paso 1.7, el componente inicial sera inicio.
+            initialRouteName="Inicio"
+            //Paso 1.12, cambiamos el color de la barra superior
+            screenOptions={{
+              headerStyle: {
+                backgroundColor: theme.colors.primary
+              },
+              headerTintColor: theme.colors.surface,
+              headerTitleStyle: {
+                fontWeight: 'bold'
+              }
             }}
-          />
-          <Stack.Screen
-            //Paso 1.10
-            name="DetallesCliente"
-            component={DetallesCliente}
-            options={{
-              title: "Detalles Cliente"
-            }}
-          />
+          >
+            <Stack.Screen
+              //Paso 1.6
+              name="Inicio"
+              //El componente que va a cargar será el de inicio.
+              component={Inicio}
+              //Paso 1.16
+              options={({ navigation, route }) => ({
+                //headerTitleAlign: 'center',
+                headerLeft: (props) => <BarraSuperior {...props}
+                  navigation={navigation}
+                  route={route}
+                />
+              })}
+            />
+            <Stack.Screen
+              //V-246,paso 1.8
+              name="NuevoCliente"
+              component={NuevoCliente}
+              //Paso 1.9, cambiamos el nombre
+              options={{
+                title: "Nuevo Cliente"
+              }}
+            />
+            <Stack.Screen
+              //Paso 1.10
+              name="DetallesCliente"
+              component={DetallesCliente}
+              options={{
+                title: "Detalles Cliente"
+              }}
+            />
 
-        </Stack.Navigator>
-      </NavigationContainer >
-      {/* <PaperProvider>
+          </Stack.Navigator>
+        </NavigationContainer >
+
+      </PaperProvider>
+
+      {/* 
+      <PaperProvider>
         <NavigationContainer>
           <Stack.Navigator
             //Vid 245, el componente inicials era inicio.
