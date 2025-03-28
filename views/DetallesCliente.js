@@ -6,12 +6,12 @@ import axios from 'axios';
 
 //Paso 2.1,le ppnemos { navigation, route }
 const DetallesCliente = ({ navigation, route }) => {
-    //Vid 266 
+    //Paso 2.10
     const { guardarConsultarAPI } = route.params;
-    //Vid 264 
+    //V-264 ,paso 2.2
     const { nombre, telefono, correo, empresa, id } = route.params.item;
 
-    //Vid 265 
+    //Paso 2.6
     const mostrarConfirmacion = () => {
         Alert.alert(
             '¿Deseas eliminar este cliente?',
@@ -23,14 +23,14 @@ const DetallesCliente = ({ navigation, route }) => {
         )
     }
 
-    //Vid 265 
+    //Paos 2.6
     const eliminarContacto = async () => {
         //IOs
         // const url = `http://localhost:3000/clientes/${id}`;
         //Android
         const url = `http://192.168.0.55:3000/clientes/${id}`;
-
         // console.log(url);
+        //V-266, paso 2.7
         try {
             //Le pasamos el id a eliminar 
             await axios.delete(url);
@@ -38,14 +38,15 @@ const DetallesCliente = ({ navigation, route }) => {
             console.log(error);
         }
 
-        //Vid 266,Redireccionar
+        //paso 2.8,Redireccionar a inicio despues de eliminar
         navigation.navigate('Inicio');
 
-        //Vid 266,  volver a consultar la api
+        //paso 2.9,  volver a consultar la api con los contactos que no se eliminaron.
         guardarConsultarAPI(true);
     }
 
     return (
+        //Paso 2.3, mostrar los detalles del cliente
         <View style={globalStyles.contenedor}>
             <Headline style={globalStyles.titulo}>{nombre}</Headline>
             <Text style={styles.texto}>Empresa: <Subheading>{empresa}</Subheading> </Text>
@@ -53,7 +54,7 @@ const DetallesCliente = ({ navigation, route }) => {
             <Text style={styles.texto}>Teléfono: <Subheading>{telefono}</Subheading> </Text>
 
             <Button
-                //Vid 265
+                //V-265,paso 2.5,ponemos el boton
                 style={styles.boton}
                 mode="contained"
                 icon="cancel"
@@ -63,7 +64,7 @@ const DetallesCliente = ({ navigation, route }) => {
             </Button>
 
             <FAB
-                //Vid 267, editar cliente 
+                //V-267,paso 2.11 editar cliente 
                 icon="pencil"
                 style={globalStyles.fab}
                 onPress={() => navigation.navigate("NuevoCliente", { cliente: route.params.item, guardarConsultarAPI })}
@@ -71,6 +72,8 @@ const DetallesCliente = ({ navigation, route }) => {
         </View>
     );
 }
+
+//Paso 2.4
 const styles = StyleSheet.create({
     texto: {
         marginBottom: 20,
