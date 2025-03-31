@@ -2,7 +2,7 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 # Getting Started a new App in React Native
 
-# JavaScript Introduccion 2
+# Consumir API's Propios,Frameworks UI y React Navigation 19
 
 ## Development
 1. Clonar proyecto
